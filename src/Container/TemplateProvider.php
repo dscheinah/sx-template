@@ -6,6 +6,10 @@ use Sx\Container\Injector;
 use Sx\Container\ProviderInterface;
 use Sx\Template\Collector\Collector;
 use Sx\Template\Collector\CollectorFactory;
+use Sx\Template\Template\Calendar\CalendarCollector;
+use Sx\Template\Template\Calendar\CalendarCollectorFactory;
+use Sx\Template\Template\Calendar\CalendarEmitter;
+use Sx\Template\Template\Calendar\CalendarEmitterFactory;
 use Sx\Template\Template\Section\SectionCollector;
 use Sx\Template\Template\Section\SectionCollectorFactory;
 use Sx\Template\Template\Section\SectionEmitter;
@@ -29,6 +33,9 @@ class TemplateProvider implements ProviderInterface
     public function provide(Injector $injector): void
     {
         $injector->set(Collector::class, CollectorFactory::class);
+
+        $injector->set(CalendarCollector::class, CalendarCollectorFactory::class);
+        $injector->set(CalendarEmitter::class, CalendarEmitterFactory::class);
 
         $injector->set(SectionCollector::class, SectionCollectorFactory::class);
         $injector->set(SectionEmitter::class, SectionEmitterFactory::class);

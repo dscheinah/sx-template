@@ -6,6 +6,8 @@ use PHPUnit\Framework\TestCase;
 use Sx\Container\Injector;
 use Sx\Template\Collector\Collector;
 use Sx\Template\Container\TemplateProvider;
+use Sx\Template\Template\Calendar\CalendarCollector;
+use Sx\Template\Template\Calendar\CalendarEmitter;
 use Sx\Template\Template\Section\SectionCollector;
 use Sx\Template\Template\Section\SectionEmitter;
 use Sx\Template\Template\Text\TextCollector;
@@ -20,6 +22,8 @@ class TemplateProviderTest extends TestCase
         $injector = new Injector();
         (new TemplateProvider())->provide($injector);
         self::assertTrue($injector->has(Collector::class));
+        self::assertTrue($injector->has(CalendarCollector::class));
+        self::assertTrue($injector->has(CalendarEmitter::class));
         self::assertTrue($injector->has(SectionCollector::class));
         self::assertTrue($injector->has(SectionEmitter::class));
         self::assertTrue($injector->has(TextCollector::class));
